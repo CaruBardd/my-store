@@ -1,9 +1,27 @@
+<!-- *ngIf se usa para validar si una condición se cumple y así ejecutar algo
+     Sintaxis : <tag *ngIf="condition; else elseBlockTag"> content </tag>
+     en caso de usar un else, se define dentro de <ng-template #elseBlockTag> content </...>
+-->
+<h1>*ngIf</h1>
+<input type="text" required minlength="5" maxlength="30" #nameInputNgIf="ngModel" [(ngModel)]="person.name">
+<input type="number" max="25" min="18" required #ageInput="ngModel" [(ngModel)]="person.age">
+<p *ngIf="nameInputNgIf.valid">Nombre valido</p>
+<p *ngIf="!nameInputNgIf.valid">Nombre inválido</p>
+<p *ngIf="person.name === 'CaruBardd'">Bienvenido, CaruBardd</p>
+<p *ngIf="person.name === 'Diego' && person.age == 22; else elseBlock">Bienvenido, Diego</p>
+
+<ng-template #elseBlock>
+  <p>Usted no es permitido</p>
+</ng-template>
+
+
 <!-- NGModel realiza un seguimiento del valor y el estado de validación de un control de formulario
      individual debido a las propiedades que hereda de
      FormControl( https://angular.io/api/forms/FormControl ).
      Documentación:
      - Angular Forms https://angular.io/api/forms/NgModel
 -->
+<hr>
 <h1>NgModel</h1>
 <p>Nombre {{ person.name }}</p>
 <input type="text" required #nameInput="ngModel" [(ngModel)]="person.name"> <!-- validación "required", reference "#nameInput='ngModel'"-->
