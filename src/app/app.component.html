@@ -1,10 +1,39 @@
+<!-- NGCLASS permite manejar varias clases en un solo elemento que pueden variar a partir
+     de condiciones, pueden ser bastantes y ser recibidas desde el componente.
+     Sintaxis: <tag [ngClass]="{'subStyleName': condition, 'subStyleName': condition, ...}"> ... </tag >
+     NGSTYLE permite asignar valores de tipo Style desde variables, objetos.
+     Stinaxis: <tag [ngStyle]="{'attribute.valueType'= value/var/obj.var, ...}"> ... </tag>
+ -->
+<h1>NgClass & NgStyle</h1>
+<input type="text" required #nameInputNgClass="ngModel" [(ngModel)]="person.name" />
+<hr class="line-error" [ngClass]="{
+  'valid': nameInputNgClass.valid,
+  'invalid': nameInputNgClass.invalid
+}">
+<p class="message-error" [class.invalid]="nameInputNgClass.invalid">El campo es requerido</p>
+
+<div class="styles">
+  <div>
+    <input type="number" [(ngModel)]="box.width" />
+    <input type="number" [(ngModel)]="box.height" />
+    <input type="color" [(ngModel)]="box.background" />
+  </div>
+  <div [ngStyle]="{
+    'width.px': box.width,
+    'height.px': box.height,
+    'background-color': box.background,
+    'display': 'block'}">
+  </div>
+</div>
+
+
 <!-- CLASES DINÁMICAS : Van a cambiar a partir del valor que se le indique (Ver archivos scss)
      Sintaxis: <tag class="className" [class.dynamic]="condition"> ... </tag>
-
      STYLE DINÁMICO: Cambiará un valor del estilo a partir de una condicional
      Sintaxis: <tag [style.atributte]="conditional ? 'trueValue' : 'falseValue'"> ... </tag>
      Cualquier condicional debe retornar el valor esperado
 -->
+<hr>
 <h1>Class & Style</h1>
 <input type="text" required #nameInputClass="ngModel" [(ngModel)]="person.name"/>
 <p class="message-error" [class.invalid]="nameInputClass.invalid">El campo es requerido</p>
