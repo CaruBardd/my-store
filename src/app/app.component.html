@@ -1,3 +1,20 @@
+<!-- *ngFor se puede utilizar con objetos donde su iterador será: object
+     Si se quisiera trabajar con atributos del objeto, se puede usar object.atribute
+-->
+<h1>*ngFor Objs</h1>
+<div>
+  <div *ngFor="let product of products; index as i">
+    <img width="250" [src]="product.image" alt="product image">
+    <h2>{{ product.name }}</h2>
+    <p *ngIf="product.category != null">{{product.category}}</p>
+    <p *ngIf="product.category == null">Sin categoria</p>
+    <h3>$ {{ product.price }}</h3>
+
+  </div>
+</div>
+
+
+
 <!-- *ngFor se usa para aplicar función For dentro de estructura HTML
      El elemento que se quiere repetir es quien debe tener dentro de su tag la función *ngFor
      Sintaxis: <tag *ngFor="let iteradorVariable of arrayInComponent; index as indexVariable ">

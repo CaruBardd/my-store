@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './product.model'
 
 @Component({
   selector: 'app-root',
@@ -53,4 +54,23 @@ export class AppComponent {
     this.names.splice(index, 1);
   }
 
+  // Sección de My Store
+  products: Product[] = [
+    {
+      name : 'Hojas de Menta',
+      price : 200,
+      image : './assets/images/mint-leaf-icon.png',
+      category: 'Dolores de panza'
+    },
+    {
+      name : 'Ramo de Hierba Buena',
+      price : 500,
+      image : './assets/images/hierbabuena-icon.png'
+    },
+    {
+      name : 'Flor de Calendula',
+      price : 150,
+      image : './assets/images/calendula-icon.png'
+    },
+  ]
 }
