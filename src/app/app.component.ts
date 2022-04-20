@@ -15,4 +15,27 @@ export class AppComponent {
     age: 22,
     avatar: 'https://source.unsplash.com/random'
   }
+
+  toggleButton() {
+    this.btnDisabled = !this.btnDisabled;
+  }
+
+  ageIncrease() {
+    this.person.age++;
+  }
+
+  ageDecrease() {
+    this.person.age--;
+  }
+
+  onScroll(event: Event) {
+    const element = event.target as HTMLElement;
+    console.log(element.scrollTop);
+  }
+
+  changeName(event: Event) {
+    const element = event.target as HTMLInputElement;
+    this.person.name = element.value;
+  }
+
 }

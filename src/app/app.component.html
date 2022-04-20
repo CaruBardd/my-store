@@ -1,17 +1,32 @@
+<!-- Para llamar a métodos en el componente ts de utiliza un evento y la función -->
+<!-- Sintaxis (event)="function" -->
+<!-- Para capturar y enviar un evento como parámetro se utiliza $event -->
+<h1>Eventos</h1>
+<button [disabled]="btnDisabled">Enviar</button>
+<button (click)="toggleButton()">Toggle Button</button>
+<p>Edad {{person.age}}</p>
+<button (click)="ageIncrease()" [disabled]="btnDisabled">( + )</button>
+<button (click)="ageDecrease()" [disabled]="btnDisabled">( - )</button>
+<div class="box" (scroll)="onScroll($event)">
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+<h2>Bienvenido, {{person.name}}</h2>
+<input type="text" [value]="person.name" (keyup)="changeName($event)">
+
 
 <!-- Para valores NO string se recomienda uso de Property Binding -->
 <!-- También se recomienda usar solamente Property Binding para configuraciónd de propiedades -->
 
+<hr>
 <h1>Propiedades</h1>
 <button [disabled]="btnDisabled">Enviar</button>
 <input type="text" [value]="person.name">
 <progress max="100" [value]="person.age"></progress>
 <img width="300" [src]="person.avatar">
 
-<hr>
-
 <!-- Para valores tipo String se recomienda uso de String interpolation -->
 
+<hr>
 <h1>Hola mundo</h1>
 <h2>{{ 'Hola Mundo'.repeat(5) }}</h2>
 <p>3 + 3 = {{ 3 + 3 }}</p>
