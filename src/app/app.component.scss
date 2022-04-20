@@ -5,6 +5,17 @@
   background-color: red;
 }
 
+.message-error {
+  background-color: yellow;
+  color: red;
+  opacity: 0;
+  transition: all linear .5s;
+  &.invalid {
+    opacity: 1;
+  }
+}
+
+
 .products--grid {
   display: flex;
   flex-direction: column;
@@ -18,6 +29,11 @@
       margin: 0;
     }
   }
+}
+
+.styles{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 @media screen and (min-width: 321px) and (max-width:768px){

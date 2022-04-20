@@ -1,9 +1,35 @@
+<!-- CLASES DINÁMICAS : Van a cambiar a partir del valor que se le indique (Ver archivos scss)
+     Sintaxis: <tag class="className" [class.dynamic]="condition"> ... </tag>
+
+     STYLE DINÁMICO: Cambiará un valor del estilo a partir de una condicional
+     Sintaxis: <tag [style.atributte]="conditional ? 'trueValue' : 'falseValue'"> ... </tag>
+     Cualquier condicional debe retornar el valor esperado
+-->
+<h1>Class & Style</h1>
+<input type="text" required #nameInputClass="ngModel" [(ngModel)]="person.name"/>
+<p class="message-error" [class.invalid]="nameInputClass.invalid">El campo es requerido</p>
+<br>
+<label> Nombre </label>
+<input type="text" required #nameInputStyle="ngModel" [(ngModel)]="person.name"/>
+<p [style.font-style]="nameInputStyle.invalid ? 'italic' : 'normal'">Texto texto texto</p>
+<div class="styles">
+  <div>
+    <input type="number" [(ngModel)]="widthImg" />
+  </div>
+  <div>
+    <img [style.width.%]="widthImg" [src]="person.avatar ">
+  </div>
+</div>
+
+
+
 <!-- *ngSwitch se usa para implementar switch en HTML
      Sintaxis:
       - <tag [ngSwitch]="optionVar"> ... switchCases/DefaultCase ... </tag>
       - <tag *ngSwitchCase ="'option'"> .. content ... </tag>
       - <tag *ngSwitchDefault> ... default content ... </tag>
 -->
+<hr>
 <h1>[ngSwitch]</h1>
 <input type="text" required [(ngModel)]="person.name" />
 <div [ngSwitch]="person.name">

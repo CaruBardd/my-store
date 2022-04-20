@@ -23,6 +23,8 @@ export class AppComponent {
   newName: String = '';
   deleteNameIndex: number = -1;
 
+  widthImg: number = 10;
+
   toggleButton() {
     this.btnDisabled = !this.btnDisabled;
   }
