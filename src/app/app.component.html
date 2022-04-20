@@ -1,7 +1,31 @@
+<!-- *ngFor se usa para aplicar función For dentro de estructura HTML
+     El elemento que se quiere repetir es quien debe tener dentro de su tag la función *ngFor
+     Sintaxis: <tag *ngFor="let iteradorVariable of arrayInComponent; index as indexVariable ">
+
+-->
+<h1>*ngFor</h1>
+<input type="text" required minlength="5" maxlength="30" #nameInputNgIf="ngModel" [(ngModel)]="newName">
+<button (click)="addName()">Add name</button>
+<ul>
+  <li *ngIf="names.length == 0">No hay nombres en la lista</li>
+  <li *ngFor="let name of names; index as i">
+    {{ i+1 }} - {{ name }} - {{ emojis[i] }}
+    <button (click)="deleteName(i)"> Delete </button>
+  </li>
+</ul>
+<div *ngIf="names.length > 0">
+  <input type="number" required min="1" [max]="names.length" #deleteNameInput="ngModel" [(ngModel)]="deleteNameIndex">
+  <button *ngIf="deleteNameInput.valid" (click)="deleteName(deleteNameIndex-1)">DeleteName</button>
+</div>
+
+
+
+
 <!-- *ngIf se usa para validar si una condición se cumple y así ejecutar algo
      Sintaxis : <tag *ngIf="condition; else elseBlockTag"> content </tag>
      en caso de usar un else, se define dentro de <ng-template #elseBlockTag> content </...>
 -->
+<hr>
 <h1>*ngIf</h1>
 <input type="text" required minlength="5" maxlength="30" #nameInputNgIf="ngModel" [(ngModel)]="person.name">
 <input type="number" max="25" min="18" required #ageInput="ngModel" [(ngModel)]="person.age">
