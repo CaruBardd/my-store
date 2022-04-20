@@ -19,9 +19,9 @@
 -->
 <hr>
 <h1>*ngFor Objs</h1>
-<div>
+<div class="products--grid">
   <div *ngFor="let product of products; index as i">
-    <img width="250" [src]="product.image" alt="product image">
+    <img [src]="product.image" alt="product image">
     <h2>{{ product.name }}</h2>
     <p *ngIf="product.category != null">{{product.category}}</p>
     <p *ngIf="product.category == null">Sin categoria</p>
@@ -119,7 +119,7 @@
 <button [disabled]="btnDisabled">Enviar</button>
 <input type="text" [value]="person.name">
 <progress max="100" [value]="person.age"></progress>
-<img width="300" [src]="person.avatar">
+<img width="200" [src]="person.avatar">
 
 <!-- Para valores tipo String se recomienda uso de String interpolation -->
 

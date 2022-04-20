@@ -4,3 +4,39 @@
   overflow: auto;
   background-color: red;
 }
+
+.products--grid {
+  display: flex;
+  flex-direction: column;
+  div {
+    img {
+      width: 100%;
+      border-radius: 10px;
+      height: 200px;
+    }
+    h2, p {
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width:768px){
+  .products--grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .products--grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    div {
+      img {
+        height: 150px;
+      }
+    }
+  }
+}
