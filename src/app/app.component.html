@@ -1,6 +1,25 @@
-<!-- Para llamar a métodos en el componente ts de utiliza un evento y la función -->
-<!-- Sintaxis (event)="function" -->
-<!-- Para capturar y enviar un evento como parámetro se utiliza $event -->
+<!-- NGModel realiza un seguimiento del valor y el estado de validación de un control de formulario
+     individual debido a las propiedades que hereda de
+     FormControl( https://angular.io/api/forms/FormControl ).
+     Documentación:
+     - Angular Forms https://angular.io/api/forms/NgModel
+-->
+<h1>NgModel</h1>
+<p>Nombre {{ person.name }}</p>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name"> <!-- validación "required", reference "#nameInput='ngModel'"-->
+<input type="number" max="25" min="18" required #ageInput="ngModel" [(ngModel)]="person.age">
+<h4>Validaciones</h4>
+<p> Nombre (campo requerido): {{ nameInput.valid }}</p> <!-- Verifica si las validaciones del input se cumplen-->
+<p> Edad   (campo requerido, 18-25): {{ ageInput.valid }}</p>
+
+
+
+<!-- Para llamar a métodos en el componente ts de utiliza un evento y la función
+     Sintaxis (event)="function"
+     Para capturar y enviar un evento como parámetro se utiliza $event
+     Eventos : https://developer.mozilla.org/en-US/docs/Web/Events
+-->
+<hr>
 <h1>Eventos</h1>
 <button [disabled]="btnDisabled">Enviar</button>
 <button (click)="toggleButton()">Toggle Button</button>
@@ -14,8 +33,9 @@
 <input type="text" [value]="person.name" (keyup)="changeName($event)">
 
 
-<!-- Para valores NO string se recomienda uso de Property Binding -->
-<!-- También se recomienda usar solamente Property Binding para configuraciónd de propiedades -->
+<!-- Para valores NO string se recomienda uso de Property Binding
+     También se recomienda usar solamente Property Binding para configuraciónd de propiedades
+-->
 
 <hr>
 <h1>Propiedades</h1>
