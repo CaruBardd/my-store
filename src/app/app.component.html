@@ -1,3 +1,27 @@
+<!--
+    FORMULARIO DE REGISTRO
+-->
+<h1>formulario</h1>
+<form (ngSubmit)="onRegister()" #registerForm="ngForm">
+  <div class="input.group">
+    <label for="name">Nombre</label>
+    <input type="text" name="name" required id="name" [(ngModel)]="register.name" />
+    <p>Mensajes de error</p>
+  </div>
+  <div class="input.group">
+    <label for="email">Email</label>
+    <input type="text" name="email" required id="email" [(ngModel)]="register.email" />
+    <p>Mensajes de error</p>
+  </div>
+  <div class="input.group">
+    <label for="password">Password</label>
+    <input type="text" name="password" required id="password" [(ngModel)]="register.password" />
+    <p>Mensajes de error</p>
+  </div>
+  <button [disabled]="registerForm.invalid" type="submit">Registrar</button>
+</form>
+
+
 <!-- NGCLASS permite manejar varias clases en un solo elemento que pueden variar a partir
      de condiciones, pueden ser bastantes y ser recibidas desde el componente.
      Sintaxis: <tag [ngClass]="{'subStyleName': condition, 'subStyleName': condition, ...}"> ... </tag >

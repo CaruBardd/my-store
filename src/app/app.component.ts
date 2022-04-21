@@ -11,10 +11,17 @@ export class AppComponent {
   age: number = 22;
   img: string = 'https://source.unsplash.com/random';
   btnDisabled: boolean = true;
+
   person = {
     name: 'Diego',
     age: 22,
     avatar: 'https://source.unsplash.com/random'
+  }
+
+  register = {
+    name: '',
+    email: '',
+    password: ''
   }
 
   names: String[] = ['Diego', 'Julian', 'Pedro','Santiago', 'César'];
@@ -60,6 +67,10 @@ export class AppComponent {
 
   deleteName(index: number) {
     this.names.splice(index, 1);
+  }
+
+  onRegister() {
+    console.log(this.register)
   }
 
   // Sección de My Store
